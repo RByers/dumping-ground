@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
+
+  <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'>
+
+  <title>Multi Scroll</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+
+      overflow: hidden;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+
+    .view {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+      box-sizing: border-box;
+      padding: 30px;
+      color: #FFF;
+    }
+
+    .view-container {
+      width: 300%;
+      height: 100%;
+
+      -webkit-backface-visibility: hidden;
+    }
+
+    .easing {
+      -webkit-transition: -webkit-transform 0.3s ease-out;
+      -moz-transition: -moz-transform 0.3s ease-out;
+      -ms-transition: -ms-transform 0.3s ease-out;
+      -o-transition: -o-transform 0.3s ease-out;
+      transition: transform 0.3s ease-out;
+    }
+
+    h1 {
+      font-family: 'Roboto Condensed';
+      line-height: 1.2;
+    }
+
+    #v1 {
+      background: #FF007F;
+    }
+
+    #v2 {
+      background: #0080FF;
+    }
+
+    #v3 {
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="view-container">
+    <div class="view" id="v1">
+      <h1>View 1</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+    </div>
+
+    <div class="view" id="v2">
+      <h1>View 2</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+    </div>
+
+    <div class="view" id="v3">
+      <h1>View 3</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eleifend odio quis erat egestas vestibulum. Ut et sodales ante, et volutpat augue. Sed imperdiet hendrerit pretium. Nullam imperdiet sed ipsum sed consectetur. Etiam fermentum sed nunc non vestibulum. Nullam rutrum mauris at augue hendrerit, nec dapibus metus dignissim. In et dignissim tellus. In quis lacus nunc. Phasellus aliquet massa dui, id euismod augue malesuada ac. Aliquam a faucibus mi.</p>
+      <p>Maecenas elementum nulla at leo porta sollicitudin. Duis non tempus magna, vitae dignissim ligula. Curabitur eu enim sem. Sed mi turpis, condimentum eu nunc sed, placerat pharetra odio. Curabitur et libero sapien. Suspendisse egestas enim in arcu tempus viverra. Nulla congue, arcu ut porttitor luctus, tortor felis rhoncus magna, a porttitor dui turpis at enim. Vestibulum in interdum leo. Donec quis libero scelerisque mi facilisis placerat a quis nulla. Mauris rhoncus quis dolor nec bibendum. Sed sed arcu consequat, consectetur velit eget, vehicula odio. Nulla facilisi. Integer at auctor nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ornare id augue feugiat malesuada.</p>
+      <p>Aliquam erat volutpat. Vestibulum venenatis massa neque, in faucibus risus varius consectetur. Interdum et malesuada fames ac ante ipsum primis in faucibus. In convallis lorem nec dui fermentum, vel imperdiet lacus sollicitudin. In rhoncus magna eu ante commodo suscipit. Pellentesque auctor scelerisque faucibus. Integer rutrum, ipsum vel eleifend egestas, dolor tellus bibendum tortor, at hendrerit nibh lorem in orci. Etiam eleifend metus hendrerit enim ultrices, eget facilisis lectus tempus. Nullam fermentum mauris vel posuere hendrerit. Vivamus ut odio id lacus placerat sollicitudin elementum vel ligula. Fusce varius massa ac sollicitudin volutpat.</p>
+    </div>
+
+  </div>
+
+  <script>
+
+    window.requestAnimFrame = (function(){
+    return  window.requestAnimationFrame       ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            function( callback ){
+              window.setTimeout(callback, 1000 / 60);
+            };
+    })();
+
+    var userFingerPosition = {x: 0, y: 0};
+    var differenceFromUserFingerPositionToCurrent = {x: 0, y: 0};
+    var boxPosition = {x: 0, y: 0};
+
+    var views = document.querySelectorAll('.view');
+    var viewContainer = document.querySelector('.view-container');
+    var xTarget = 0;
+    var lockedAxis = false;
+    var moving = false;
+
+    function setViewBasePositions() {
+      for (var v = 0; v < views.length; v++) {
+        views[v].style.left = (v * 100) + '%';
+      }
+    }
+
+    function setUserFingerPosition (evt) {
+      userFingerPosition.x = evt.screenX;
+      userFingerPosition.y = evt.screenY;
+
+      // Prefer touch events if we have them.
+      if (evt.touches && evt.touches.length) {
+        userFingerPosition.x = evt.touches[0].screenX;
+        userFingerPosition.y = evt.touches[0].screenY;
+      }
+    }
+
+    function setPositionDifference (evt) {
+
+      var currentX = evt.screenX;
+      var currentY = evt.screenY;
+
+      if (evt.touches && evt.touches.length) {
+        currentX = evt.touches[0].screenX;
+        currentY = evt.touches[0].screenY;
+      }
+
+      differenceFromUserFingerPositionToCurrent.x = currentX - userFingerPosition.x;
+      differenceFromUserFingerPositionToCurrent.y = currentY - userFingerPosition.y;
+
+    }
+
+    function clamp(val, min, max) {
+      return Math.min(max, Math.max(val, min));
+    }
+
+    function onDown (evt) {
+
+      moving = true;
+      lockedAxis = false;
+
+      setUserFingerPosition(evt);
+      setPositionDifference(evt);
+
+      viewContainer.classList.remove('easing');
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('touchmove', onMove);
+
+      requestAnimFrame(updateViewPositions);
+    }
+
+    function onUp (evt) {
+
+      moving = false;
+
+      var x = boxPosition.x + differenceFromUserFingerPositionToCurrent.x;
+
+      // OK so this is a hack. A better solution would involve
+      // velocities or something. But it would also be moar harderer.
+      x = Math.round(x / window.innerWidth) * window.innerWidth;
+      x = clamp(x, (views.length - 1) * -window.innerWidth, 0);
+
+      viewContainer.classList.add('easing');
+      boxPosition.x = x;
+
+      requestAnimFrame(function() {
+        viewContainer.style.webkitTransform = 'translateX(' + x + 'px)';
+        viewContainer.style.mozTransform = 'translateX(' + x + 'px)';
+        viewContainer.style.msTransform = 'translateX(' + x + 'px)';
+        viewContainer.style.oTransform = 'translateX(' + x + 'px)';
+        viewContainer.style.transform = 'translateX(' + x + 'px)';
+      });
+
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('touchmove', onMove);
+    }
+
+    function onMove (evt) {
+
+      setPositionDifference(evt);
+
+      if (differenceFromUserFingerPositionToCurrent.x >
+          differenceFromUserFingerPositionToCurrent.y)
+        lockedAxis = true;
+
+      if (lockedAxis)
+        evt.preventDefault();
+    }
+
+    function updateViewPositions () {
+
+      var x = boxPosition.x + differenceFromUserFingerPositionToCurrent.x;
+
+      viewContainer.style.webkitTransform = 'translateX(' + x + 'px)';
+      viewContainer.style.mozTransform = 'translateX(' + x + 'px)';
+      viewContainer.style.msTransform = 'translateX(' + x + 'px)';
+      viewContainer.style.oTransform = 'translateX(' + x + 'px)';
+      viewContainer.style.transform = 'translateX(' + x + 'px)';
+
+      if (moving)
+        requestAnimFrame(updateViewPositions);
+    }
+
+    requestAnimFrame(updateViewPositions);
+    setViewBasePositions();
+
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('touchstart', onDown);
+
+    document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchend', onUp);
+
+    window.addEventListener('scroll', function(evt) {
+
+      // Chrome on Android seems to totes ignore this.
+      console.log('scroll');
+      evt.stopImmediatePropagation();
+      evt.preventDefault();
+    });
+  </script>
+</body>
+</html>
